@@ -11,14 +11,14 @@ void main() {
           backgroundColor: Colors.grey[850],
         ),
         body: DicePage(),
-        // // floatingActionButton: FloatingActionButton(onPressed: (){
-        // //   print("floating object pressed");
-        // // },
-        // backgroundColor: Colors.blue,
-        // child: const Icon(Icons.refresh),
+        floatingActionButton: FloatingActionButton(onPressed: (){
+        },
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.refresh),
       ),
     ),
-    // debugShowCheckedModeBanner: true,
+    debugShowCheckedModeBanner: true,
+    ),
   );
 }
 
@@ -44,7 +44,7 @@ class _DicePageState extends State<DicePage> {
                   onPressed: () {
                     setState(() {
                       leftDiceNumber = Random().nextInt(6) + 1;
-                      print ('value of dices are $leftDiceNumber + $rightDiceNumber');
+                      print ('value of dices are ${leftDiceNumber+rightDiceNumber}');
                     });
                     },
                   child: Image(
@@ -61,7 +61,7 @@ class _DicePageState extends State<DicePage> {
                     setState(() {
                       rightDiceNumber = Random().nextInt(6)+1;
                     });
-                    print('value of dices are $leftDiceNumber + $rightDiceNumber' );
+                    print('value of dices are ${leftDiceNumber+rightDiceNumber}' );
                   },
                   child: Image(
                     image: AssetImage('assets/images/dice$rightDiceNumber.png'),
