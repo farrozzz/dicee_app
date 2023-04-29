@@ -4,7 +4,6 @@ import 'dart:math';
 void main() {
   return runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
@@ -13,6 +12,7 @@ void main() {
         ),
         body: DicePage(),
       ),
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
