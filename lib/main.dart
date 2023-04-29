@@ -1,44 +1,77 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
-void main(){
+void main() {
   return runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
-      appBar: AppBar(
-        title:  const Text ('Dicee'),
-        backgroundColor: Colors.lightGreenAccent,
-      ),
+        backgroundColor: Colors.blueGrey,
+        appBar: AppBar(
+          title: const Text('Dicee'),
+          backgroundColor: Colors.grey[850],
+        ),
         body: DicePage(),
+        // // floatingActionButton: FloatingActionButton(onPressed: (){
+        // //   print("floating object pressed");
+        // // },
+        // backgroundColor: Colors.blue,
+        // child: const Icon(Icons.refresh),
       ),
     ),
+    // debugShowCheckedModeBanner: true,
   );
 }
 
-class DicePage extends StatelessWidget {
-  const DicePage({Key? key}) : super(key: key);
+class DicePage extends StatefulWidget {
+  @override
+  State<DicePage> createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
-      child: Row(
-        children: [
-          Expanded
-            (child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Image(image: AssetImage('assets/images/dice1.png'),
-          ),
+    return SafeArea(
+      child: Center(
+        child: Row(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      leftDiceNumber = Random().nextInt(6) + 1;
+                      print ('value of dices are $leftDiceNumber + $rightDiceNumber');
+                    });
+                    },
+                  child: Image(
+                    image: AssetImage('assets/images/dice$leftDiceNumber.png'),
+                  ),
+                ),
+              ),
             ),
-          ),
-          Expanded(child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Image(image: AssetImage('assets/images/dice2.png'),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      rightDiceNumber = Random().nextInt(6)+1;
+                    });
+                    print('value of dices are $leftDiceNumber + $rightDiceNumber' );
+                  },
+                  child: Image(
+                    image: AssetImage('assets/images/dice$rightDiceNumber.png'),
+                  ),
+                ),
+              ),
             ),
-          ),
-          ),
-        ],
+              ],
+            ),
       ),
     );
   }
 }
-
