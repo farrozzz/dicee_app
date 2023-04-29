@@ -4,6 +4,7 @@ import 'dart:math';
 void main() {
   return runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
@@ -11,13 +12,7 @@ void main() {
           backgroundColor: Colors.grey[850],
         ),
         body: DicePage(),
-      //   floatingActionButton: FloatingActionButton(onPressed: (){
-      //   },
-      //   backgroundColor: Colors.blue,
-      //   child: const Icon(Icons.refresh),
-      // ),
-    ),
-    debugShowCheckedModeBanner: false,
+      ),
     ),
   );
 }
